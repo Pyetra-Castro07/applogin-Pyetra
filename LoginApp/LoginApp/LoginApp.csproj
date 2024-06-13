@@ -1,0 +1,154 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
+
+		<!-- Note for MacCatalyst:
+		The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
+		When specifying both architectures, use the plural <RuntimeIdentifiers> instead of the singular <RuntimeIdentifier>.
+		The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
+		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
+		<!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
+
+		<OutputType>Exe</OutputType>
+		<RootNamespace>LoginApp</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<!-- Display name -->
+		<ApplicationTitle>LoginApp</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.loginapp</ApplicationId>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\homework.svg" />
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\AppIcon\homework.svg" Color="#D9D9D9" />
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Pages\Perfil.xaml.cs" />
+	  <Compile Remove="Pages\Registro.xaml.cs" />
+	  <Compile Remove="Pages\RegistroPage.xaml.cs" />
+	  <Compile Remove="Pages\RegistroPages.xaml.cs" />
+	  <Compile Remove="Pages\Sobre.xaml.cs" />
+	  <Compile Remove="Pages\Tarefa.xaml.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\cadeado.svg" />
+	  <MauiImage Remove="Resources\Images\dotnet_bot.png" />
+	  <MauiImage Remove="Resources\Images\fundosobre.svg" />
+	  <MauiImage Remove="Resources\Images\house.svg" />
+	  <MauiImage Remove="Resources\Images\lapisusuario.svg" />
+	  <MauiImage Remove="Resources\Images\lock.svg" />
+	  <MauiImage Remove="Resources\Images\Login.svg" />
+	  <MauiImage Remove="Resources\Images\login2.svg" />
+	  <MauiImage Remove="Resources\Images\login_2.svg" />
+	  <MauiImage Remove="Resources\Images\logoapp.png" />
+	  <MauiImage Remove="Resources\Images\logosemnome.svg" />
+	  <MauiImage Remove="Resources\Images\nome.svg" />
+	  <MauiImage Remove="Resources\Images\perfil.svg" />
+	  <MauiImage Remove="Resources\Images\perfil2.svg" />
+	  <MauiImage Remove="Resources\Images\usuárioLapis.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Remove="Pages\Perfil.xaml" />
+	  <MauiXaml Remove="Pages\Registro.xaml" />
+	  <MauiXaml Remove="Pages\RegistroPage.xaml" />
+	  <MauiXaml Remove="Pages\RegistroPages.xaml" />
+	  <MauiXaml Remove="Pages\Sobre.xaml" />
+	  <MauiXaml Remove="Pages\Tarefa.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Images\about.svg" />
+	  <None Remove="Resources\Images\cadastro.svg" />
+	  <None Remove="Resources\Images\cadeado.svg" />
+	  <None Remove="Resources\Images\camera.svg" />
+	  <None Remove="Resources\Images\dotnet_bot.png" />
+	  <None Remove="Resources\Images\fundo.svg" />
+	  <None Remove="Resources\Images\fundosobre.svg" />
+	  <None Remove="Resources\Images\fundotarefas.svg" />
+	  <None Remove="Resources\Images\home.svg" />
+	  <None Remove="Resources\Images\house.svg" />
+	  <None Remove="Resources\Images\house2.svg" />
+	  <None Remove="Resources\Images\lapisusuario.svg" />
+	  <None Remove="Resources\Images\lapiszinho.svg" />
+	  <None Remove="Resources\Images\lock.svg" />
+	  <None Remove="Resources\Images\Login.svg" />
+	  <None Remove="Resources\Images\login2.svg" />
+	  <None Remove="Resources\Images\login3.svg" />
+	  <None Remove="Resources\Images\login_2.svg" />
+	  <None Remove="Resources\Images\logoapp.png" />
+	  <None Remove="Resources\Images\logosemnome.svg" />
+	  <None Remove="Resources\Images\nome.svg" />
+	  <None Remove="Resources\Images\perfil.svg" />
+	  <None Remove="Resources\Images\perfil2.svg" />
+	  <None Remove="Resources\Images\perfil3.svg" />
+	  <None Remove="Resources\Images\perfilzinho.svg" />
+	  <None Remove="Resources\Images\registros.svg" />
+	  <None Remove="Resources\Images\tarefas.svg" />
+	  <None Remove="Resources\Images\trancar.svg" />
+	  <None Remove="Resources\Images\usuárioLapis.svg" />
+	  <None Remove="Resources\Splash\splash.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Pages\EditaUsuarioPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\HomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\PerfilPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\SobrePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\TarefaPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+</Project>

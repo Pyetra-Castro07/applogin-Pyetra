@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="LoginApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:LoginApp"
+    xmlns:pages="clr-namespace:LoginApp.Pages"
+    Shell.FlyoutBehavior="Flyout"
+    Shell.FlyoutBackgroundColor="#D9D9D9"
+    Title="LoginApp">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style TargetType="FlyoutItem">
+                <Setter Property="Shell.BackgroundColor" Value="#D9D9D9" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="Gray" />
+                <Setter Property="Shell.UnselectedColor" Value="Gray" />
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <FlyoutItem Title="HOME" Icon="house2.svg" >
+        <ShellContent Route="home" ContentTemplate="{DataTemplate pages:HomePage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="PERFIL" Icon="perfil3.svg">
+        <ShellContent Route="settings" ContentTemplate="{DataTemplate pages:PerfilPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="TAREFAS" Icon="tarefas.svg">
+        <ShellContent Route="settings" ContentTemplate="{DataTemplate pages:TarefaPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="SOBRE" Icon="about.svg">
+        <ShellContent Route="settings" ContentTemplate="{DataTemplate pages:SobrePage}" />
+    </FlyoutItem>
+
+</Shell>

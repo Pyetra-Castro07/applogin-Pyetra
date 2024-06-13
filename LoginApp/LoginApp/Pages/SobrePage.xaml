@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginApp.Pages.SobrePage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#65B5E4"
+             Title="HOMEWORK TIME"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+
+
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="#D9D9D9" />
+    </ContentPage.Behaviors>
+    
+    <ScrollView>
+    <VerticalStackLayout>
+
+        <Label 
+            Text="SOBRE NOSSA EMPRESA"
+            FontAttributes="Bold"
+            FontSize="Title"
+            Margin="20,50,18,20"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label
+            Text="Nosso objetivo é tornar o processo de acompanhamento de tarefas, prazos e
+            projetos escolares o mais simples possível. Acreditamos que, ao oferecer uma solução integrada e fácil de usar, podemos ajudar estudantes de todas as idades a alcançarem seu máximo  potencial acadêmico."
+            
+            FontSize="Subtitle"
+            Margin="30,20,20,20"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            CharacterSpacing="1"
+            LineBreakMode="WordWrap"
+            LineHeight="1.8" />
+
+        <Label
+            Text="Nossa equipe é composta por uma mistura diversificada de profissionais talentosos, incluindo desenvolvedores de software, designers de interface do usuário e educadores. Esta combinação única de habilidades nos permite criar uma experiência que atende às necessidades específicas dos estudantes e educadores de todo o mundo"
+            FontSize="Subtitle"
+            Margin="30,20,20,20"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            CharacterSpacing="1"
+            LineBreakMode="WordWrap"
+            LineHeight="1.8" />
+
+
+        <Label
+            Text="Além disso, estamos comprometidos em manter um ambiente seguro e protegido para todos os nossos usuários. Levamos a privacidade e a segurança dos dados muito a sério e implementamos medidas rigorosas para proteger suas informações pessoais."
+             FontSize="Subtitle"
+             Margin="30,20,20,20"
+             VerticalOptions="Center"
+             HorizontalOptions="Center"
+             CharacterSpacing="1"
+             LineBreakMode="WordWrap"
+             LineHeight="1.8" />
+
+
+
+
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

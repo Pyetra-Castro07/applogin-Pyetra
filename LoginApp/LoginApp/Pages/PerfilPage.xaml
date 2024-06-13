@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginApp.Pages.PerfilPage"
+             Title="HOMEWORK TIME"
+             BackgroundImageSource="lapiszinho.svg"
+             BackgroundColor="#D9D9D9"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="#D9D9D9" />
+    </ContentPage.Behaviors>
+
+    <VerticalStackLayout Padding="20" Margin="0,25,15,0">
+        <StackLayout HeightRequest="100" WidthRequest="300">
+            <ImageButton Source="perfilzinho.svg" x:Name="Ftperfil"  Aspect="AspectFill" CornerRadius="-30" HeightRequest="140" WidthRequest="130" />
+            <Label Text="Nome" FontSize="Medium" Margin="5,0,0,0" FontAttributes="Bold"/>
+            <Entry x:Name="txtNome" Text="{Binding Nome}" Placeholder="Nome" PlaceholderColor="Gray" TextColor="Black"  FontAttributes="Bold" FontSize="18" Margin="0,20,0,10"/>
+            <Label Text="Email" FontSize="Medium" Margin="5,0,0,0" FontAttributes="Bold"/>
+            <Entry x:Name="txtEmail" Text="{Binding Email}" Placeholder="Email" TextColor="Black" PlaceholderColor="Gray" FontAttributes="Bold" FontSize="18" Margin="0,20,0,10" />
+            <Label Text="Senha" FontSize="Medium" Margin="5,0,0,0" FontAttributes="Bold"/>
+            <Entry x:Name="txtSenha" Text="{Binding Senha}" Placeholder="Senha" TextColor="Black" PlaceholderColor="Gray" FontAttributes="Bold" FontSize="18" Margin="0,20,0,10" />
+            <Button Grid.Column="0" Grid.Row="3" x:Name="BTNSalvar" Clicked="btnSalvar_Clicked"
+                        Margin="20,15,0,0" FontAttributes="Bold" HorizontalOptions="Center" Text="ATUALIZAR" TextColor="White" BackgroundColor="Black" />
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>

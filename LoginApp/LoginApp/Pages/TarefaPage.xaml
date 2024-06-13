@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginApp.Pages.TarefaPage"
+             NavigationPage.HasNavigationBar="False"
+             Title="HOMEWORK TIME"
+             BackgroundImageSource="fundotarefas.svg"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+
+
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="#D9D9D9" />
+    </ContentPage.Behaviors>
+
+    <VerticalStackLayout>
+        <Label
+            Text="TAREFAS"
+            FontAttributes="Bold"
+            FontSize="Title"
+            Margin="20,50,18,20"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Entry x:Name="Tarefa" Text="{Binding Descritivo}" Margin="10"/>
+
+        <Button Text="Adicionar" x:Name="btnAdicionar" Clicked="btnAdicionar_Clicked" Margin="10"/>
+
+        <CollectionView Grid.Row="2" Grid.ColumnSpan="2"
+                        ItemsSource="{Binding Items}"
+                        SelectionMode="None">
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
